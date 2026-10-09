@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "description": "Buy Pizza",
+        "status": "todo",
+        "createdAt": "2026-10-08T23:23:10",
+        "updatedAt": "2026-10-08T23:23:10"
+    },
+    {
+        "id": 2,
+        "description": "Buy PC",
+        "status": "todo",
+        "createdAt": "2026-10-08T23:26:35",
+        "updatedAt": "2026-10-08T23:26:35"
+    }
+]
