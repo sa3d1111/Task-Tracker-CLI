@@ -48,4 +48,25 @@ class Tools:
         found_id.description = description
         found_id.updatedAt = datetime.now().isoformat(timespec="seconds")
         self.save()
-        print(f"Task {id_dict} updates successfully.")     
+        print(f"Task {id_dict} updates successfully.")
+    def mark(self,marked,id) :
+        found_id = None
+        for task in self.tasks :
+            if task.id == id :
+                found_id = task 
+        if found_id is None :
+            print(f"Error: Task with ID {id} not found.")
+            return
+        found_id.status = marked    
+        self.save()
+    def list(self):
+        for task in self.tasks :
+            print(task.to_dict())        
+    def list_by_status(self,status) :
+        status_found = 0
+        for task in self.tasks :
+            if task.status == status :
+                status_found = 1
+                print(task.to_dict())
+        if status_found == 0 :
+            print(f"There is 0 Tasks with {status} left.")
