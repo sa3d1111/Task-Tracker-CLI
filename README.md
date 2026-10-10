@@ -38,7 +38,7 @@ task-tracker/
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/sa3d1111/Task-Tracker-CLI.git](https://github.com/sa3d1111/Task-Tracker-CLI.git)
+git clone https://github.com/sa3d1111/Task-Tracker-CLI.git
 cd task-tracker
 ```
 
@@ -123,4 +123,5 @@ Data is persisted locally in JSON format with structured ISO 8601 timestamps:
 ## 👤 Author
 
 - **Saad BENBAHI** - Applied Informatics Student
+- Project Link : [Click Here](https://roadmap.sh/projects/task-tracker)
 - GitHub: [@sa3d1111](https://github.com/sa3d1111)
