@@ -1,9 +1,13 @@
 import json,os
 from datetime import datetime
-from manager.Task import Task
+from .Task import Task
 class Tools:
-    def __init__(self,filename="tasks.json"):
-        self.filename = filename
+    def __init__(self,filename=None):
+        if filename is None:
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            self.filename = os.path.join(base_dir, "tasks.json")
+        else:
+            self.filename = filename
         self.tasks = []
         self.load()
     def load(self):
@@ -17,12 +21,13 @@ class Tools:
         with open(self.filename, "w") as f:
             json.dump([t.to_dict() for t in self.tasks],f,indent=4) 
     def add(self,description):
-        new_id = max([t.id for t in self.tasks], default=0) + 1
-        new_task = Task(new_id, description)
+        new_task = Task(1, description)
+        self.tasks.insert(0, new_task)
+        for index, task in enumerate(self.tasks, start=1):
+            task.id = index
         print("User Added Succeful !")
-        self.tasks.append(new_task)
         self.save()
-        print(f"Task added successfully (ID: {new_id})")    
+        print(f"Task added successfully ! ")    
     def delete(self,task_id) :
         delete = None
         for task in self.tasks :
@@ -33,8 +38,8 @@ class Tools:
             print(f"Error: Task with ID {task_id} not found.")
             return
         self.tasks.remove(delete)
-        for task in self.tasks :
-            task.id = task_id - 1
+        #for task in self.tasks :
+            #task.id = task_id - 1
         self.save()    
         print(f"Task {task_id} deleted successfully.")
     def update(self,id_dict,description):

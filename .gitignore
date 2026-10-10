@@ -1,0 +1,13 @@
+.venv/
+
+# Build & packaging
+task_cli.egg-info/
+build/
+dist/
+
+# Cache Python
+__pycache__/
+*.pyc
+
+
+.vscode/
